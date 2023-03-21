@@ -14,6 +14,9 @@ The application has been built using a Repository Pattern and a Service-Oriented
 Now to the fun part! 
 
 To run the application, clone the repository and run the following commands in the root directory of the application.
+You can either add the env variables in the following format or pass them as options to the swoogo:stats command:
+```SWOOGO_KEY="key"
+SWOOGO_SECRET="secret"```
 
 Build the application: 
 ```docker-compose build```
