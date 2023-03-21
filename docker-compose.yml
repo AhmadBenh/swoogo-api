@@ -7,7 +7,7 @@ services:
       context: .
       dockerfile: ./Dockerfile
     image: digitalocean.com/php
-    container_name: ${APP_NAME}-app
+    container_name: app
     restart: unless-stopped
     tty: true
     environment:
@@ -19,11 +19,14 @@ services:
       - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
     networks:
       - app-network
+    depends_on:
+      - db
+    command: bash -c "composer install && php artisan migrate && php-fpm"
 
   #PostgreSQL Service
   db:
     image: postgres:alpine
-    container_name: ${APP_NAME}-db
+    container_name: db
     restart: unless-stopped
     tty: true
     ports:
@@ -44,6 +47,7 @@ services:
 networks:
   app-network:
     driver: bridge
+
 volumes:
   dbdata:
     driver: local
