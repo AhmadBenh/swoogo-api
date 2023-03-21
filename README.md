@@ -15,6 +15,9 @@ Now to the fun part!
 
 To run the application, clone the repository and run the following commands in the root directory of the application.
 
+Install dependencies:
+```composer install```
+
 Build the application: 
 ```docker-compose build```
 
@@ -40,3 +43,5 @@ Start playing with the command:
  > Tests would handle failures conditions, CRUD responses and API responses.
 
 - I did not understand the purpose of option -a. Should it be computing the mean, median and mode of the averages or from the titles counts? The aggregate top tens should be mixed or should it only display the top ten with the higher count?
+
+- Also, the comments/documentation could be improved.
